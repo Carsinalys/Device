@@ -1,0 +1,31 @@
+@mixin littleDesctop {
+  @media screen and (max-width: 1000px) {
+    @content
+  }
+};
+
+@mixin laptop {
+  @media screen and (max-width: 768px) {
+    @content
+  }
+};
+
+@mixin semiMobile {
+  @media screen and (max-width: 600px) {
+    @content
+  }
+};
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content
+  }
+};
+
+%clearfix {
+  &:after {
+    display: table;
+  	content: "";
+  	clear: both;
+  }
+}

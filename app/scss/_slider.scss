@@ -1,0 +1,286 @@
+.slider {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: -29.5%;
+
+  @include laptop {
+    margin-bottom: -25.5%;
+  }
+
+  @include semiMobile {
+    margin-bottom: -30%;
+  }
+
+}
+
+.slide1, .slide2, .slide3 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: 0.3s;
+  opacity: 0;
+  z-index: 10;
+
+  @include mobile {
+    align-items: center;
+  }
+}
+
+.slide_image, .slide_content {
+  width: 48.4%;
+  position: relative;
+}
+
+.slide_image {
+  min-height: 30rem;
+
+  @include laptop {
+    min-height: 35rem;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  @include mobile {
+    min-height: 20rem;
+  }
+}
+
+.slide_pic {
+  @include littleDesctop {
+    display: block;
+    width: 70%;
+  }
+}
+
+.slide_content {
+  padding-top: 8rem;
+
+  @include semiMobile {
+    padding-top: 4rem;
+  }
+
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 7px;
+    background: #ffffff;
+    width: 18%;
+    left: 0;
+    top: 5rem;
+
+    @include semiMobile {
+      top: 2rem;
+    }
+
+    @include mobile {
+      top: 0;
+    }
+  }
+}
+
+.slide_pic {
+  display: block;
+  margin: auto;
+}
+
+.slide_title {
+  font-size: 4.7rem;
+  font-family: GilroyExtraBlod;
+  margin: 0 0 2rem 0;
+
+  @include littleDesctop {
+    font-size: 3.5rem;
+  }
+
+  @include laptop {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  @include semiMobile {
+    font-size: 2.5rem;
+  }
+
+  @include mobile {
+    font-size: 2rem;
+
+    margin: 0;
+  }
+}
+
+.slide_number {
+  font-size: 18rem;
+  color: #ffffff;
+  font-weight: bolder;
+  font-family: GilroyExtraBlod;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: -5rem;
+
+  @include littleDesctop {
+    font-size: 16rem;
+    right: 2rem;
+  }
+
+  @include laptop {
+    font-size: 12rem;
+    top: -2rem;
+  }
+
+  @include semiMobile {
+    font-size: 10rem;
+    top: -3rem;
+  }
+
+  @include mobile {
+    top: -5rem;
+  }
+
+}
+
+.slide_text {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+  font-family: OpenSansLight;
+
+  @include littleDesctop {
+    margin-bottom: 0;
+  }
+
+  @include laptop {
+    margin-bottom: 0;
+    line-height: 2.5rem;
+    font-size: 1.2rem;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.slide_link {
+  display: inline-block;
+  padding: 1.5rem 4.5rem;
+  font-size: 1.8rem;
+  font-family: GilroyExtraBlod;
+  text-transform: uppercase;
+  color: #000000;
+  position: relative;
+  left: 0;
+  transition: 0.3s;
+  margin-bottom: 2rem;
+
+  @include littleDesctop {
+    margin-bottom: 1rem;
+  }
+}
+
+.link_backside_theme {
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 8px;
+    left: 0;
+    top: 41%;
+    z-index: -1;
+    width: 100%;
+    background: $orangedeep;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    &:before {
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  &:active {
+    color: #ca9d00;
+  }
+}
+
+
+.table_big {
+  font-size: 3.6rem;
+  padding-right: 7rem;
+  font-family: Gilroy;
+
+  @include littleDesctop {
+    font-size: 2.5rem;
+  }
+
+  @include semiMobile {
+    font-size: 2rem;
+    padding-right: 4rem;
+  }
+}
+
+.slide_table {
+  @include mobile {
+    display: none;
+  }
+}
+
+.table_small {
+  font-size: 1.3rem;
+  font-family: OpenSansLight;
+}
+
+.buttons {
+  position: absolute;
+  right: 11rem;
+  bottom: 11rem;
+  display: flex;
+
+  @include laptop {
+    right: 3rem;
+  }
+
+  @include semiMobile {
+    bottom: 5rem;
+  }
+
+  @include mobile {
+    bottom: 0;
+  }
+}
+
+.button {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 3px #b2b2b2 solid;
+  margin-right: 2.3rem;
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.3s;
+
+  &:hover {
+    border: 3px #999999 solid;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.button_active {
+  border: 3px #000000 solid;
+}
+
+.slide_active {
+  opacity: 1;
+  z-index: 15;
+}

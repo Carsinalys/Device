@@ -1,0 +1,507 @@
+main {
+  position: relative;
+}
+//categories
+.categories_list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rem;
+
+  @include laptop {
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+  @include mobile {
+    margin-bottom: 2rem;
+  }
+}
+
+.categories_item {
+  width: 14%;
+
+  @include laptop {
+    width: 30%;
+    margin-bottom: 1rem;
+  }
+
+  @include mobile {
+    width: 48%;
+    margin-bottom: 2rem;
+  }
+}
+
+.categories_block {
+  min-height: 16rem;
+  background: $orange;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  @include laptop {
+    margin-bottom: 1rem;
+  }
+}
+
+.categories_pic {
+  transition: 0.3s;
+}
+
+.categories_block_theme {
+  align-items: flex-end;
+}
+
+.categories_link {
+  display: block;
+  transition: 0.3s;
+
+  &:hover {
+    .categories_block {
+      background: $orangedeep;
+    }
+  }
+
+  &:active {
+    .categories_pic {
+      opacity: 0.4;
+    }
+    .categories_text {
+      color: #cacaca;
+    }
+  }
+}
+
+.categories_text {
+  font-size: 1.8rem;
+  font-family: GilroyExtraBlod;
+  color: #000000;
+  transition: 0.3s;
+}
+//slider2
+
+.slider-2 {
+  padding: 8rem 0 7rem 0;
+  margin-bottom: 17rem;
+  position: relative;
+  @include laptop {
+    margin-bottom: 10rem;
+  }
+
+  @include mobile {
+    margin-bottom: 5rem;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100px;
+    background: #e6e6e6;
+    z-index: -1;
+
+    @include laptop {
+      height: 80%;
+    }
+  }
+}
+
+.slider2_position {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls {
+  width: 24.6%;
+  position: relative;
+
+  @include semiMobile {
+    width: 37%;
+  }
+
+
+  &:before {
+    content: "";
+    display: block;
+    width: 7px;
+    height: 185%;
+    background: #000000;
+    position: absolute;
+    right: 0;
+    top: -80px;
+
+    @include laptop {
+      width: 3px;
+      height: 160%;
+      top: -50px;
+    }
+  }
+}
+
+.controls_item {
+  margin-bottom: 2.5rem;
+  transition: 0.3s;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    background: transparent;
+    transition: 0.4s;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.controls_item_active {
+
+  &:before {
+    background: #000000;
+  }
+}
+
+
+
+.controls_link {
+  display: inline-block;
+  color: #000000;
+  font-size: 1.5rem;
+  font-family: GilroyExtraBlod;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  width: 56%;
+  text-align: center;
+  position: relative;
+  transition: 0.3s;
+
+  @include laptop {
+    width: 100%;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 8px;
+    left: 0;
+    top: 40%;
+    z-index: -1;
+    width: 100%;
+    background: $orangedeep;
+    transition: 0.2s;
+  }
+
+  &:hover {
+    &:before {
+      height: 100%;
+      top: 0;
+    }
+  }
+}
+
+.controls_link_active {
+  color: #ffe27f;
+
+  &:before {
+    background: transparent;
+  }
+}
+
+.content {
+  width: 75.4%;
+  position: relative;
+  min-height: 16rem;
+}
+
+.slide2-1, .slide2-2, .slide2-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 12rem;
+  position: absolute;
+  top: -1rem;
+  transition: 0.4s;
+  opacity: 0;
+
+  @include laptop {
+    padding-left: 3rem;
+  }
+
+  @include mobile {
+    padding-left: 1rem;
+    align-items: center;
+  }
+
+}
+
+.slider2_active_slide {
+  opacity: 1;
+}
+
+.slide2_content {
+  width: 57%;
+}
+
+.slide2_image {
+  width: 43%;
+  display: flex;
+  justify-content: center;
+}
+
+.slide2_pic {
+  @include mobile {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.slide2_title {
+  font-size: 4.7rem;
+  font-family: GilroyExtraBlod;
+  margin-top: 0;
+  margin-bottom: 4rem;
+  line-height: 4.7rem;
+
+  @include laptop {
+    margin-bottom: 2rem;
+  }
+  @include mobile {
+    margin-bottom: 1rem;
+  }
+}
+
+.slide2_text {
+  font-size: 1.5rem;
+  font-family: OpenSansLight;
+  line-height: 3rem;
+
+  @include laptop {
+    line-height: 2.5rem;
+  }
+
+  @include mobile {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+}
+//manufacturers
+
+.manufacturer {
+  margin-bottom: 10rem;
+  @include laptop {
+    margin-bottom: 4rem;
+  }
+}
+
+.manufacturer_list {
+  display: flex;
+  justify-content: space-between;
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+}
+
+.manufacturer_item {
+  width: 25%;
+
+  @include mobile {}
+  width: 50%;
+}
+
+.manufacturer_pic {
+  filter: grayscale(1);
+  opacity: 0.2;
+  transition: 0.3s;
+
+  @include mobile {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.manufacturer_link {
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    .manufacturer_pic {
+      filter: none;
+      opacity: 1;
+    }
+  }
+}
+
+//about section
+
+.about{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rem;
+
+  @include laptop {
+    margin-bottom: 4rem;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+}
+
+.about_us, .about_contacts {
+  width: 48%;
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  @include laptop {
+    padding-top: 3rem;
+  }
+
+  @include mobile {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 80px;
+    height: 7px;
+    background: #000000;
+    top: 0;
+    left: 0;
+
+    @include laptop {
+      height: 4px;
+    }
+  }
+}
+
+.about_us_title, .about_contacts_title {
+  font-family: GilroyExtraBlod;
+  font-size: 4.7rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 5rem;
+
+  @include laptop {
+    font-size: 3.4rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.about_us_description, .about_us_work, .about_contacts_text {
+  font-family: OpenSansLight;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  margin-bottom: 3.5rem;
+
+  @include laptop {
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}
+
+.about_us_work_item {
+  font-family: GilroyExtraBlod;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-left: 4rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+
+  @include laptop {
+    margin-bottom: 1.5rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border: 3px #b4b4b4 solid;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    left: 3px;
+    top: 3px;
+  }
+}
+
+.about_contacts_image, .about_us_work_list {
+  margin-bottom: 8rem;
+
+  @include laptop {
+    margin-bottom: 3rem;
+  }
+}
+
+.about_us_link, .about_contacts_link {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+  font-family: GilroyExtraBlod;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+  width: 47%;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+
+  @include laptop {
+    width: 60%;
+    font-size: 1.5rem;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 8px;
+    left: 0;
+    top: 40%;
+    z-index: -1;
+    width: 100%;
+    background: $orangedeep;
+    transition: 0.3s;
+
+    @include laptop {
+      top: 37%;
+    }
+  }
+
+  &:hover {
+    &:before {
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  &:active {
+    color: #ca9d00;
+  }
+}
+
+.about_contacts_pic {
+  cursor: pointer;
+}
