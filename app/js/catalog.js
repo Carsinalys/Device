@@ -202,3 +202,74 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+//ajax
+
+function getXmlHttp(){
+    var xmlhttp;
+    try {
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+        try {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (E) {
+            xmlhttp = false;
+        }
+    }
+    if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+        xmlhttp = new XMLHttpRequest();
+    }
+    return xmlhttp;
+}
+
+
+
+//sort by price
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    let container = document.querySelector('.goods');
+
+//ajax in sort
+    var req = getXmlHttp();
+    req.open('GET', 'test.html', true);
+    req.onreadystatechange = function() {
+        if (req.readyState == 4) {
+            if(req.status == 200) {
+                req.responseText.split('split');
+
+                for (let i=0; i<req.responseText.split('split').length; i++) {
+                    let item = document.createElement('div');
+                    item.setAttribute('class','goods_item');
+                    item.innerHTML = req.responseText.split('split')[i];
+                    container.appendChild(item);
+                }
+
+            }
+        }
+    };
+    req.send(null);
+    req.addEventListener('loadend', function () {
+
+        let minPrice = document.querySelector('.value1'),
+            maxPrice = document.querySelector('.value2'),
+            goods = document.querySelectorAll('.goods_item'),
+            arr = [],
+            obj = new Object();
+
+
+
+        for (let i=0; i<goods.length; i++) {
+            let value = parseFloat(goods[i].children[1].children[1].innerHTML);
+            arr.push(value);
+            obj[i] = value;
+        }
+        console.log(arr);
+        console.log(obj);
+
+        console.log(goods[0].children[1].children[1].innerHTML);
+        console.log(parseFloat(goods[0].children[1].children[1].innerHTML));
+        console.log(minPrice.innerHTML);
+        console.log(maxPrice.innerHTML);
+    });
+});
