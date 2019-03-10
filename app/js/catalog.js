@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    container[1].addEventListener('touchleave', function (e) {
+    container[1].addEventListener('touchleave', function () {
         for (let i=0; i<hiddenItem.length; i++) {
             hiddenItem[i].classList.remove('hidden_active');
         }
@@ -221,14 +221,14 @@ function getXmlHttp(){
     }
     return xmlhttp;
 }
+// sort
 
-
+var clone = new Object(); // создал глобальый объект в который будет записан нодлист с сервера
+var newObject = new Object(); // объект для сортировок по форме
 
 //sort by price
 
 document.addEventListener('DOMContentLoaded', function () {
-
-    let container = document.querySelector('.goods');
 
 //ajax in sort
     var req = getXmlHttp();
@@ -242,34 +242,188 @@ document.addEventListener('DOMContentLoaded', function () {
                     let item = document.createElement('div');
                     item.setAttribute('class','goods_item');
                     item.innerHTML = req.responseText.split('split')[i];
-                    container.appendChild(item);
+                    clone[i] = item; //заполнение объекта с товарами для сортировки
+
+                    // container.appendChild(item);
+                    // console.log(Object.keys(clone).length);
+                    // console.log(clone);
                 }
+                backup(clone);
+                identifyListNumber(Object.keys(newObject).length);
+                addChildren(newObject);
 
             }
         }
     };
     req.send(null);
     req.addEventListener('loadend', function () {
+        // навешиваем обработчик на завершение работы ajax
+        let form = document.querySelector('.form');
 
-        let minPrice = document.querySelector('.value1'),
-            maxPrice = document.querySelector('.value2'),
-            goods = document.querySelectorAll('.goods_item'),
-            arr = [],
-            obj = new Object();
+        // сортировка по цене //////////////////////////////////////////////////////////////////////////////////
+        form.addEventListener('change', function () { // обработчик срабатывает на изменении фрмы
+            let minPrice = document.querySelector('.value1').innerHTML,
+                maxPrice = document.querySelector('.value2').innerHTML,
+                arr = [];
 
-
-
-        for (let i=0; i<goods.length; i++) {
-            let value = parseFloat(goods[i].children[1].children[1].innerHTML);
-            arr.push(value);
-            obj[i] = value;
-        }
-        console.log(arr);
-        console.log(obj);
-
-        console.log(goods[0].children[1].children[1].innerHTML);
-        console.log(parseFloat(goods[0].children[1].children[1].innerHTML));
-        console.log(minPrice.innerHTML);
-        console.log(maxPrice.innerHTML);
+            clearObject(newObject);//очищаем буферный объект для запонения отсортированныит свойствами
+            let i = 0;
+            for (let key in clone) {  // работа с клонированными элементами в объекте clone
+                if (parseFloat(clone[i].children[1].children[1].innerHTML) < maxPrice && parseFloat(clone[i].children[1].children[1].innerHTML) > minPrice) {
+                            arr.push(i);
+                        }
+                i++;
+            }
+            for (let y=0; y<arr.length; y++) {// добавляю отдельным циклом т к нужет правильный порядок элементов (1 2 3 4 ...)
+                newObject[y] = clone[arr[y]];
+            }
+            identifyListNumber(Object.keys(newObject).length);
+            addChildren(newObject);
+        });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {// листание по страничкам
+    let arrowUp = document.querySelector('.sort_arrow_up'),
+        arrowDown = document.querySelector('.sort_arrow_down'),
+        nextBtn = document.querySelector('.nav_next_link'),
+        prewBtn = document.querySelector('.nav_prew_link'),
+        links = document.querySelectorAll('.nav_link');
+
+    arrowUp.addEventListener('click', function () {
+        let arrValues = [],
+            temporaryObject = new Object();
+
+        for (let i=0; i<Object.keys(newObject).length; i++) {
+            arrValues.push(parseFloat(newObject[i].children[1].children[1].innerHTML));
+        }
+        arrValues.sort(function(a, b) { return a - b;  }).reverse();
+        for (let y=0; y<arrValues.length; y++) {
+            for (let x=0; x<Object.keys(newObject).length; x++) {
+                if (arrValues[y] === parseFloat(newObject[x].children[1].children[1].innerHTML)) {
+                    temporaryObject[y] = newObject[x];
+                }
+            }
+        }
+        identifyListNumber(Object.keys(temporaryObject).length);
+        addChildren(temporaryObject);
+        if (arrowUp.classList.contains('active_arrow_up')) {
+            return false
+        } else {
+            arrowUp.classList.add('active_arrow_up');
+            arrowDown.classList.remove('active_arrow_down');
+        }
+    });
+
+    arrowDown.addEventListener('click', function () {
+        let arrValues = [],
+            temporaryObject = new Object();
+
+        for (let i=0; i<Object.keys(newObject).length; i++) {
+            arrValues.push(parseFloat(newObject[i].children[1].children[1].innerHTML));
+        }
+        arrValues.sort(function(a, b) { return a - b;  });
+        for (let y=0; y<arrValues.length; y++) {
+            for (let x=0; x<Object.keys(newObject).length; x++) {
+                if (arrValues[y] === parseFloat(newObject[x].children[1].children[1].innerHTML)) {
+                    temporaryObject[y] = newObject[x];
+                }
+            }
+        }
+        identifyListNumber(Object.keys(temporaryObject).length);
+        addChildren(temporaryObject);
+        if (arrowDown.classList.contains('active_arrow_up')) {
+            return false
+        } else {
+            arrowUp.classList.remove('active_arrow_up');
+            arrowDown.classList.add('active_arrow_down');
+        }
+    });
+
+    nextBtn.addEventListener('click', function () {
+
+    });
+});
+
+function identifyListNumber(number) {// определение количества страниц
+    let page = Math.ceil(number/4);
+    addListNumber(page);
+}
+
+function addListNumber(number) {// добавление страниц
+    let navList = document.querySelectorAll('.nav_list'),
+        navItem = document.querySelectorAll('.nav_item'),
+        listNumber = number;
+    removeListNumbers(navItem);
+    for (let i=0; i<listNumber; i++) {
+        let listItem = document.createElement('li'),
+            listLink = document.createElement('a');
+        listItem.setAttribute('class', 'nav_item');
+        listLink.setAttribute('class', 'nav_link');
+        if (i === 0) {
+            listLink.classList.add('nav_link_active');
+        }
+        listLink.innerHTML = (i+1);
+        listItem.appendChild(listLink);
+        navList[0].appendChild(listItem);
+    }
+
+}
+
+function addChildren(obj) {// добавление элементов
+    let box = document.querySelector('.goods'),
+        links = document.querySelectorAll('.nav_link'),
+        linksBox = document.querySelectorAll('.nav_list'),
+        n;
+    removeChildren(box);
+    if (Object.keys(obj).length < 4) {//проверка если длинна объекта меньше 4-х
+        n= Object.keys(obj).length;
+    } else {
+        n = 4;
+    }
+    for (let y=0; y<n; y++) {
+        box.appendChild(obj[y]);
+    }
+    linksBox[0].addEventListener('click', function (e) {// слушатель кликов по страничкам снизу
+        for (let i=0; i<links.length; i++) {
+            if (e.target === links[i]) {
+                changeStyleLink(links,i);
+                removeChildren(box);
+                for (let y=((i+1)*4-4); y<((i+1)*4); y++) {
+                    if (Object.keys(obj).length > y){// провека: y не должен быть больше длинны объекта или получим ошибку т к длтнна объкта бывает меньше y
+                        box.appendChild(obj[y]);
+                    } else {
+                        return false;
+                    }
+
+                }
+            }
+        }
+    });
+}
+function changeStyleLink(list, number) {// смена стилей линков
+    for (let i=0; i<list.length; i++) {
+        list[i].classList.remove('nav_link_active');
+    }
+    list[number].classList.add('nav_link_active');
+}
+function  removeListNumbers(item) {// очистка ссылок снизу
+    for (let i=0; i<item.length; i++) {
+        item[i].remove();
+    }
+}
+function backup(original) {// копирование оригинального объекта
+    for (let i=0; i<Object.keys(original).length; i++) {
+        newObject[i] = original[i];
+    }
+}
+function clearObject(obj) {// очистка буферного объекта
+    Object.getOwnPropertyNames(obj).forEach(function (prop) {
+        delete obj[prop];
+    });
+}
+function removeChildren (box) {// очистка поля с товарами
+    for (let z=(box.children.length-1); z>-1; z--) {
+        box.children[z].remove();
+    }
+}
