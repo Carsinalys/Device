@@ -114,6 +114,14 @@
   }
 }
 
+.footer_links_item {
+  margin-right: 1rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
 .footer_links_list {
   display: flex;
   justify-content: space-between;

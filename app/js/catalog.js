@@ -232,22 +232,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //ajax in sort
     var req = getXmlHttp();
-    req.open('GET', 'test.html', true);
+    req.open('GET', 'test.json', true);
+    req.responseType = 'json';
     req.onreadystatechange = function() {
         if (req.readyState == 4) {
             if(req.status == 200) {
-                req.responseText.split('split');
-
-                for (let i=0; i<req.responseText.split('split').length; i++) {
-                    let item = document.createElement('div');
-                    item.setAttribute('class','goods_item');
-                    item.innerHTML = req.responseText.split('split')[i];
-                    clone[i] = item; //заполнение объекта с товарами для сортировки
-
-                    // container.appendChild(item);
-                    // console.log(Object.keys(clone).length);
-                    // console.log(clone);
+                let someValue,
+                    i=0;
+                someValue = req.response;
+                function letMakeElem () {
+                    if (someValue.goods[i] === undefined) {
+                        return false;
+                    } else {
+                        let nodeGoods = document.createElement('div'),
+                            text = '';
+                        nodeGoods.setAttribute('class', 'goods_item');
+                        text += '<div><img src="'+someValue.goods[i].src+'" alt=""><div class="hidden"><div class="link_backside_theme"><a href="#">в корзину</a>';
+                        text += '</div><a href="#">добавить к сравнению</a></div></div><div><p>'+someValue.goods[i].text+'</p><span>'+someValue.goods[i].cost+'</span></div>';
+                        nodeGoods.innerHTML = text;
+                        clone[i] = nodeGoods;
+                        i++;
+                        letMakeElem();
+                    }
                 }
+                letMakeElem();
                 backup(clone);
                 identifyListNumber(Object.keys(newObject).length);
                 addChildren(newObject);
@@ -255,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     };
-    req.send(null);
+    req.send();
     req.addEventListener('loadend', function () {
         // навешиваем обработчик на завершение работы ajax
         let form = document.querySelector('.form');
@@ -286,8 +294,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {// листание по страничкам
     let arrowUp = document.querySelector('.sort_arrow_up'),
         arrowDown = document.querySelector('.sort_arrow_down'),
-        nextBtn = document.querySelector('.nav_next_link'),
-        prewBtn = document.querySelector('.nav_prew_link'),
         links = document.querySelectorAll('.nav_link');
 
     arrowUp.addEventListener('click', function () {
@@ -339,10 +345,6 @@ document.addEventListener('DOMContentLoaded', function () {// листание �
             arrowDown.classList.add('active_arrow_down');
         }
     });
-
-    nextBtn.addEventListener('click', function () {
-
-    });
 });
 
 function identifyListNumber(number) {// определение количества страниц
@@ -374,6 +376,8 @@ function addChildren(obj) {// добавление элементов
     let box = document.querySelector('.goods'),
         links = document.querySelectorAll('.nav_link'),
         linksBox = document.querySelectorAll('.nav_list'),
+        nextBtn = document.querySelector('.nav_next_link'),
+        prewBtn = document.querySelector('.nav_prew_link'),
         n;
     removeChildren(box);
     if (Object.keys(obj).length < 4) {//проверка если длинна объекта меньше 4-х
@@ -384,6 +388,7 @@ function addChildren(obj) {// добавление элементов
     for (let y=0; y<n; y++) {
         box.appendChild(obj[y]);
     }
+    // далее обработчики для навигации я не делал отдельгую функцию для логики переключения т к там разные добавочные числа к переменной i
     linksBox[0].addEventListener('click', function (e) {// слушатель кликов по страничкам снизу
         for (let i=0; i<links.length; i++) {
             if (e.target === links[i]) {
@@ -396,6 +401,47 @@ function addChildren(obj) {// добавление элементов
                         return false;
                     }
 
+                }
+            }
+        }
+    });
+    nextBtn.addEventListener('click', ()=> {// слушатель кнопки вперед
+        let links = document.querySelectorAll('.nav_link');// необходимо было копирнуть т к в некоторых браузерах при сортировке по цене сохранялось 2 вместо 1 (как бы юыло в буфере)
+        for (let i=0; i<links.length; i++) {
+            if (links[i].classList.contains('nav_link_active')) {
+                if (links[i+1] === undefined) {
+                    return false;
+                } else {
+                    changeStyleLink(links, i+1);
+                    removeChildren(box);
+                    for (let y=((i+2)*4-4); y<((i+2)*4); y++) {
+                        if (Object.keys(obj).length > y){// провека: y не должен быть больше длинны объекта или получим ошибку т к длтнна объкта бывает меньше y
+                            box.appendChild(obj[y]);
+                        } else {
+                            return false;
+                        }
+
+                    }
+                }
+            }
+        }
+    });
+    prewBtn.addEventListener('click', ()=> {// слушатель кнопки назад
+        for (let i=0; i<links.length; i++) {
+            if (links[i].classList.contains('nav_link_active')) {
+                if (links[i-1] === undefined) {
+                    return false;
+                } else {
+                    changeStyleLink(links, i-1);
+                    removeChildren(box);
+                    for (let y=((i)*4-4); y<((i)*4); y++) {
+                        if (Object.keys(obj).length > y){// провека: y не должен быть больше длинны объекта или получим ошибку т к длтнна объкта бывает меньше y
+                            box.appendChild(obj[y]);
+                        } else {
+                            return false;
+                        }
+
+                    }
                 }
             }
         }

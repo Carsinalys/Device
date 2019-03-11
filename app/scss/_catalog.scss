@@ -334,8 +334,7 @@
 .form_cover {
   padding: 7rem 7rem 0 0;
   background: #f0f0f0;
-  min-height: 126.1rem;
-  min-height: 126.1rem;
+  min-height: 127.1rem;
 
   @include littleDesctop {
     min-height: 107rem;
@@ -531,17 +530,20 @@ input[type=range]::-ms-tooltip {
   margin-bottom: 2.3rem;
 }
 
+.form_checkbox_cover, .form_radiobtn_cover {
+  display: flex;
+}
+
 .form_label, .form_radio_label {
   font-size: 1.4rem;
   font-family: OpenSansLight;
   display: flex;
   align-content: center;
+  align-items: flex-start;
+  cursor: pointer;
 }
 
-.form_checkbox {
-  margin: 0 2rem 1.7rem 0 ;
-  width: 23px;
-  height: 23px;
+.form_label {
   position: relative;
 
   &:before {
@@ -551,8 +553,8 @@ input[type=range]::-ms-tooltip {
     width: 23px;
     height: 23px;
     background: #dcdcdc;
-    left: 0;
-    top: 0;
+    left: -42px;
+    top: -2px;
     transition: background-color 0.3s;
   }
 
@@ -568,31 +570,33 @@ input[type=range]::-ms-tooltip {
     }
   }
 
-  &:checked {
+}
+
+.form_checkbox:checked + .form_label {
+  &:before {
+    background: #dcdcdc url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAQAAACWu2SvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAhsQJh0dIgz/AAAAVElEQVQI12XOQQ2AMABD0SdhEpCABCQgAQlIwAESkICUSUFCucAgkF6a3zSt+Mokxj9exKGnWJWGN1F1wSyqEor99vGUB1Vsrdvm8sZXEEaH6X3iBF6jRP3bxRyFAAAAAElFTkSuQmCC") no-repeat center center;
+  }
+
+  &:hover {
     &:before {
-      background: #dcdcdc url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAQAAACWu2SvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAhsQJh0dIgz/AAAAVElEQVQI12XOQQ2AMABD0SdhEpCABCQgAQlIwAESkICUSUFCucAgkF6a3zSt+Mokxj9exKGnWJWGN1F1wSyqEor99vGUB1Vsrdvm8sZXEEaH6X3iBF6jRP3bxRyFAAAAAElFTkSuQmCC") no-repeat center center;
+      background: #cfcfcf url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAQAAACWu2SvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAhsQJh0dIgz/AAAAVElEQVQI12XOQQ2AMABD0SdhEpCABCQgAQlIwAESkICUSUFCucAgkF6a3zSt+Mokxj9exKGnWJWGN1F1wSyqEor99vGUB1Vsrdvm8sZXEEaH6X3iBF6jRP3bxRyFAAAAAElFTkSuQmCC") no-repeat center center;
     }
+  }
 
-    &:hover {
-      &:before {
-        background: #cfcfcf url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAQAAACWu2SvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAhsQJh0dIgz/AAAAVElEQVQI12XOQQ2AMABD0SdhEpCABCQgAQlIwAESkICUSUFCucAgkF6a3zSt+Mokxj9exKGnWJWGN1F1wSyqEor99vGUB1Vsrdvm8sZXEEaH6X3iBF6jRP3bxRyFAAAAAElFTkSuQmCC") no-repeat center center;
-      }
-    }
-
-    &:active {
-      &:before {
-        background: #c5c5c5 url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAQAAACWu2SvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAhsQJh0dIgz/AAAAVElEQVQI12XOQQ2AMABD0SdhEpCABCQgAQlIwAESkICUSUFCucAgkF6a3zSt+Mokxj9exKGnWJWGN1F1wSyqEor99vGUB1Vsrdvm8sZXEEaH6X3iBF6jRP3bxRyFAAAAAElFTkSuQmCC") no-repeat center center;
-      }
+  &:active {
+    &:before {
+      background: #c5c5c5 url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAQAAACWu2SvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAhsQJh0dIgz/AAAAVElEQVQI12XOQQ2AMABD0SdhEpCABCQgAQlIwAESkICUSUFCucAgkF6a3zSt+Mokxj9exKGnWJWGN1F1wSyqEor99vGUB1Vsrdvm8sZXEEaH6X3iBF6jRP3bxRyFAAAAAElFTkSuQmCC") no-repeat center center;
     }
   }
 }
 
-.form_radio {
-  background: #eeeeee;
-  border: 2px #c7c7c7 solid;
-  width: 23px;
-  height: 23px;
-  margin: 0 1.8rem 1.8rem 0;
+.form_checkbox {
+  margin: 0 2rem 1.7rem 0 ;
+  width: 20px;
+  height: 20px;
+}
+
+.form_radio_label {
   position: relative;
 
   &:before {
@@ -604,8 +608,8 @@ input[type=range]::-ms-tooltip {
     border-radius: 50%;
     background: #eeeeee;
     border: 2px #c7c7c7 solid;
-    left: -3px;
-    top: -5px;
+    left: -44px;
+    top: -4px;
     transition: border-bottom-color, border-left-color, border-right-color, border-top-color 0.3s;
   }
 
@@ -620,8 +624,9 @@ input[type=range]::-ms-tooltip {
       border: 2px #aeaeae solid;
     }
   }
+}
 
-  &:checked {
+.form_radio:checked + .form_radio_label {
     &:before {
       background: #eeeeee url("../img/catalog/Shape.svg") no-repeat center center;
     }
@@ -637,7 +642,15 @@ input[type=range]::-ms-tooltip {
         border: 2px #aeaeae solid;
       }
     }
-  }
+}
+
+.form_radio {
+  background: #eeeeee;
+  border: 2px #c7c7c7 solid;
+  width: 23px;
+  height: 23px;
+  margin: 0 1.8rem 1.8rem 0;
+  position: relative;
 }
 
 .form_submit_block {
@@ -829,6 +842,8 @@ input[type=range]::-ms-tooltip {
   padding: 2.5rem 3rem;
   transition: 0.3s;
   background: #ebebeb;
+  cursor: pointer;
+  user-select: none;
 
   @include mobile {
     padding: 1.5rem;

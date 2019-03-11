@@ -26,7 +26,7 @@
 .write_us {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: flex-start;
 }
 
 .write_us_name, .write_us_mail {
