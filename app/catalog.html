@@ -14,16 +14,18 @@
         <div class="container back_theme catalog_theme">
             <div class="logo">
             <a href="index.html" class="logo_link">
-                <div class="logo_cover">
-                    <object data="img/logo.svg" type="image/svg+xml" class="logo_object"></object>
-                </div>
+                <svg class="logo__header" >
+                    <use xlink:href="#logo" class="logo-1"/>
+                </svg>
             </a>
         </div>
             <div class="header_top">
             <div class="search">
                 <form action="#" class="search_form" id="search_form">
                     <label for="search" class="search_label">
-                        <object data="img/search.svg" type="image/svg+xml" class="search_object"></object>
+                        <svg class="search_cover">
+                            <use xlink:href="#searchsvg" class="search-1"/>
+                        </svg>
                         <input type="search" class="search_input" id="search" form="search_form" placeholder="Поиск по сайту">
                     </label>
                     <label for="submit"><input type="submit" class="search_submit" id="submit" form="search_form" value="Найти"></label>
@@ -32,25 +34,25 @@
             <div class="action">
                 <div class="action_signin">
                     <a href="#" class="action_signin_link">
-                        <div class="action_signin_cover">
-                            <object data="img/user.svg" type="image/svg+xml" class="action_signin_object"></object>
-                        </div>
+                        <svg class="action_signin_cover">
+                            <use xlink:href="#user" class="user-1"/>
+                        </svg>
                         Войти</a>
                 </div>
                 <div class="action_list">
                     <ul class="list">
                         <li class="list_item">
-                            <a href="#" class="list_link">
-                                <div class="action_compare_cover">
-                                    <object data="img/compare.svg" type="image/svg+xml" class="action_compare_object"></object>
-                                </div>
+                            <a href="#" class="list_link compare_link">
+                                <svg class="action_compare_cover">
+                                    <use xlink:href="#compare" class="compare-1"/>
+                                </svg>
                                 Сравнить</a>
                         </li>
                         <li class="list_item">
-                            <a href="#" class="list_link">
-                                <div class="action_cart_cover">
-                                    <object data="img/cart.svg" type="image/svg+xml" class="action_cart_object"></object>
-                                </div>
+                            <a href="#" class="list_link cart_link">
+                                <svg class="action_cart_cover">
+                                    <use xlink:href="#cart" class="cart-1"/>
+                                </svg>
                                 Корзина</a>
                         </li>
                     </ul>
@@ -60,9 +62,9 @@
             <div class="header_middle">
             <div class="catalog">
                 <a href="#" class="catalog_link">Каталог товаров
-                    <div class="action_plus_cover">
-                        <object data="img/plus.svg" type="image/svg+xml" class="action_plus_object"></object>
-                    </div>
+                    <svg class="action_plus_cover">
+                        <use xlink:href="#plus" class="plus-1"/>
+                    </svg>
                 </a>
             </div>
             <div class="nav">
@@ -97,6 +99,7 @@
         </div>
         </div>
     </header>
+
     <main class="main">
         <div class="container">
             <div class="catalog_header">
@@ -215,39 +218,37 @@
         </div>
     </main>
 
-
-
     <footer class="footer">
         <div class="container">
             <div class="footer_top">
                 <div class="footer_logo">
                     <a href="index.html" class="footer_logo_link">
-                        <div class="footer_logo_cover">
-                            <object data="img/logo.svg" type="image/svg+xml" class="footer_logo_object"></object>
-                        </div>
+                        <svg class="logo__header" >
+                            <use xlink:href="#logo" class="logo-2"/>
+                        </svg>
                     </a>
                 </div>
                 <div class="footer_nav">
                     <ul class="footer_nav_list">
                         <li class="footer_nav_item">
-                            <a href="" class="list_link footer_nav_link">Войти
-                                <div class="action_signin_cover">
-                                    <object data="img/user.svg" type="image/svg+xml" class="action_signin_object"></object>
-                                </div>
+                            <a href="" class="list_link footer_nav_link user-2_link">Войти
+                                <svg class="action_signin_cover">
+                                    <use xlink:href="#user" class="user-2"/>
+                                </svg>
                             </a>
                         </li>
                         <li class="footer_nav_item">
-                            <a href="" class="list_link footer_nav_link">Сравнить
-                                <div class="action_compare_cover">
-                                    <object data="img/compare.svg" type="image/svg+xml" class="action_compare_object"></object>
-                                </div>
+                            <a href="" class="list_link footer_nav_link compare-1_link">Сравнить
+                                <svg class="action_compare_cover">
+                                    <use xlink:href="#compare" class="compare-2"/>
+                                </svg>
                             </a>
                         </li>
                         <li class="footer_nav_item">
-                            <a href="" class="list_link footer_nav_link">Корзина
-                                <div class="action_cart_cover">
-                                    <object data="img/cart.svg" type="image/svg+xml" class="action_cart_object"></object>
-                                </div>
+                            <a href="" class="list_link footer_nav_link cart-2_link">Корзина
+                                <svg class="action_cart_cover">
+                                    <use xlink:href="#cart" class="cart-2"/>
+                                </svg>
                             </a>
                         </li>
                     </ul>
@@ -273,18 +274,24 @@
                 <div class="social">
                     <ul class="social_list">
                         <li class="social_item">
-                            <a href="#" class="social_link">
-                                <object data="img/social/facebook.svg" type="image/svg+xml" class="social_object"></object>
+                            <a href="#" class="social_link facebook_link">
+                                <svg class="social_svg">
+                                    <use xlink:href="#facebook" class="facebook"/>
+                                </svg>
                             </a>
                         </li>
                         <li class="social_item">
-                            <a href="#" class="social_link">
-                                <object data="img/social/instagram.svg" type="image/svg+xml" class="social_object"></object>
+                            <a href="#" class="social_link instagram_link">
+                                <svg class="social_svg">
+                                    <use xlink:href="#instagram" class="instagram"/>
+                                </svg>
                             </a>
                         </li>
                         <li class="social_item">
-                            <a href="#" class="social_link">
-                                <object data="img/social/twitter.svg" type="image/svg+xml" class="social_object"></object>
+                            <a href="#" class="social_link twitter_link">
+                                <svg class="social_svg">
+                                    <use xlink:href="#twitter" class="twitter"/>
+                                </svg>
                             </a>
                         </li>
                     </ul>
@@ -298,6 +305,11 @@
         </div>
     </footer>
 
+    <div class="svgsprite">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <symbol  viewBox="0 0 1792 1792" id="cart" xmlns="http://www.w3.org/2000/svg"><path d="M704 1536q0 52-38 90t-90 38-90-38-38-90 38-90 90-38 90 38 38 90zm896 0q0 52-38 90t-90 38-90-38-38-90 38-90 90-38 90 38 38 90zm128-1088v512q0 24-16.5 42.5T1671 1024L627 1146q13 60 13 70 0 16-24 64h920q26 0 45 19t19 45-19 45-45 19H512q-26 0-45-19t-19-45q0-11 8-31.5t16-36 21.5-40T509 1207L332 384H128q-26 0-45-19t-19-45 19-45 45-19h256q16 0 28.5 6.5T432 278t13 24.5 8 26 5.5 29.5 4.5 26h1201q26 0 45 19t19 45z"/></symbol><symbol viewBox="0 0 121.805 121.805" id="compare" xmlns="http://www.w3.org/2000/svg"><path d="M121.805 109.623V21.926a4.872 4.872 0 0 0-4.871-4.873H92.572a4.871 4.871 0 0 0-4.871 4.873v87.697a4.87 4.87 0 0 0 4.871 4.873h24.361a4.871 4.871 0 0 0 4.872-4.873zM46.287 114.496h26.797a4.871 4.871 0 0 0 4.872-4.873V12.181a4.871 4.871 0 0 0-4.872-4.872H46.287a4.871 4.871 0 0 0-4.873 4.872v97.442a4.87 4.87 0 0 0 4.873 4.873zM4.872 46.286A4.87 4.87 0 0 0 0 51.158v58.465a4.87 4.87 0 0 0 4.872 4.873h24.361a4.87 4.87 0 0 0 4.872-4.873V51.158a4.87 4.87 0 0 0-4.872-4.872H4.872z"/></symbol><symbol id="logo" viewBox="0 0 164 36" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls{font-size:26.459px;font-family:Gilroy;font-weight:800}</style></defs><text id="clogo" class="cls"  transform="matrix(1.827 0 0 1.814 -2.32 34.511)">DEVICE</text></symbol><symbol viewBox="0 0 100 100" id="minus" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 51.6h60v2.5h-60z"/></symbol><symbol viewBox="0 0 42 42" id="plus" xmlns="http://www.w3.org/2000/svg"><path d="M42 20H22V0h-2v20H0v2h20v20h2V22h20z"/></symbol><symbol viewBox="0 0 512 512" id="searchsvg" xmlns="http://www.w3.org/2000/svg"><path d="M497.913,497.913c-18.782,18.782-49.225,18.782-68.008,0l-84.862-84.863c-34.889,22.382-76.13,35.717-120.659,35.717  C100.469,448.767,0,348.312,0,224.383S100.469,0,224.384,0c123.931,0,224.384,100.452,224.384,224.383  c0,44.514-13.352,85.771-35.718,120.676l84.863,84.863C516.695,448.704,516.695,479.131,497.913,497.913z M224.384,64.109  c-88.511,0-160.274,71.747-160.274,160.273c0,88.526,71.764,160.274,160.274,160.274c88.525,0,160.273-71.748,160.273-160.274  C384.657,135.856,312.909,64.109,224.384,64.109z"/></symbol><symbol viewBox="0 0 50 50" id="user" xmlns="http://www.w3.org/2000/svg"><path fill="none" style="opacity: 0" d="M0 0h50v50H0z"/><path d="M30.933 32.528c-.146-1.612-.09-2.737-.09-4.21.73-.383 2.038-2.825 2.259-4.888.574-.047 1.479-.607 1.744-2.818.143-1.187-.425-1.855-.771-2.065.934-2.809 2.874-11.499-3.588-12.397-.665-1.168-2.368-1.759-4.581-1.759-8.854.163-9.922 6.686-7.981 14.156-.345.21-.913.878-.771 2.065.266 2.211 1.17 2.771 1.744 2.818.22 2.062 1.58 4.505 2.312 4.888 0 1.473.055 2.598-.091 4.21C19.367 37.238 7.546 35.916 7 45h38c-.545-9.084-12.315-7.762-14.067-12.472z"/></symbol><symbol viewBox="0 0 50 50" id="facebook" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" id="facebook" ><path d="M25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 Z M25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 Z M26.8145197,36 L26.8145197,24.998712 L30.0687449,24.998712 L30.5,21.2076072 L26.8145197,21.2076072 L26.8200486,19.3101227 C26.8200486,18.3213442 26.9207209,17.7915341 28.4425538,17.7915341 L30.4769629,17.7915341 L30.4769629,14 L27.2222769,14 C23.3128757,14 21.9368678,15.8390937 21.9368678,18.9318709 L21.9368678,21.2080366 L19.5,21.2080366 L19.5,24.9991413 L21.9368678,24.9991413 L21.9368678,36 L26.8145197,36 Z M26.8145197,36"/></g></g></symbol><symbol viewBox="0 0 512 512" id="instagram" xmlns="http://www.w3.org/2000/svg"><path d="M258.9,507.2C120.4,507.9,6.6,392.6,9.9,252C12.9,118,124,7,262.3,8.7c136.6,1.7,249.4,115.4,245.8,256   C504.7,398.2,394.7,507.8,258.9,507.2z M40.2,257.9c0.9,122.6,97.9,218.2,214.4,219.9c123.6,1.8,222.8-95.7,223.1-219.5   c0.1-122.7-97.8-218-214.5-220.3C143.1,35.7,41.2,132.3,40.2,257.9z"/><path d="M413.2,261.3c0,21.8-0.6,43.7,0.1,65.5c1.5,41.9-28.7,76.9-68.6,86.9c-7.8,2-16.1,3.2-24.1,3.3c-42.3,0.3-84.6,0.7-126.9,0   c-35.3-0.6-63.1-15.6-81.9-46.1c-7.2-11.7-10.8-24.7-10.8-38.5c-0.1-47.5-0.5-95,0.1-142.4c0.4-31,15.9-53.9,41.6-70.3   c16-10.2,33.7-14.8,52.6-14.8c41.3-0.1,82.6-0.5,123.9,0.1c36.4,0.5,65.2,15.7,83.9,47.7c6.7,11.5,10.1,24.2,10.1,37.7   C413.1,214,413.2,237.7,413.2,261.3z M124,261.1c0,22.8,0,45.7,0,68.5c0,9.1,1.7,17.9,6,26c13.8,26,36.4,37.8,64.9,38.2   c41.3,0.6,82.7,0.3,124,0c7.1,0,14.3-1.2,21.2-3c27.5-7.4,50.9-31.2,50.1-66.1c-1-44-0.2-88-0.2-132c0-9.7-1.8-18.9-6.5-27.4   c-14.1-25.3-36.6-36.8-64.6-37.2c-41.2-0.6-82.3-0.4-123.5,0c-8.2,0.1-16.6,1.6-24.5,4c-26.9,8.3-48.1,32.2-47,64.4   C124.6,218.1,124,239.6,124,261.1z"/><path d="M257.1,183c40.7-0.1,73.7,32.4,73.7,72.4c-0.1,39.8-33,72.3-73.3,72.4c-40.6,0.1-73.5-32.3-73.5-72.5   C184,215.4,216.6,183.1,257.1,183z M257.1,206.2c-27.4,0.1-50,22.4-49.9,49.3s22.6,49,50.2,49.1c27.5,0,50.1-22.1,50.2-49   C307.5,228.3,284.8,206.1,257.1,206.2z"/><path d="M354.8,176.7c0.2,8.5-6.8,16-15.1,16.3c-8.5,0.3-15.8-6.9-15.9-15.8c-0.1-8.7,6.6-16,14.9-16.3   C347.2,160.6,354.6,167.9,354.8,176.7z"/></symbol><symbol viewBox="0 0 50 50" id="twitter" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="twitter" class="twitter" fill="#000000"><path d="M25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 Z M25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 Z M24.6822554,20.5542975 L24.729944,21.3761011 L23.9351333,21.2754721 C21.0420225,20.8897275 18.5145246,19.5815504 16.3685358,17.3844837 L15.3193857,16.2943361 L15.0491501,17.0993681 C14.4768864,18.8939188 14.8424993,20.7890985 16.0347153,22.0637326 C16.6705638,22.7681357 16.5274979,22.8687647 15.4306592,22.4494772 C15.0491501,22.3153051 14.7153296,22.2146761 14.6835371,22.2649907 C14.5722637,22.3823912 14.9537728,23.9085978 15.2558008,24.5123719 C15.6691024,25.350947 16.5116017,26.1727505 17.433582,26.6591241 L18.2124965,27.0448686 L17.2905161,27.0616401 C16.4003282,27.0616401 16.3685358,27.0784116 16.4639131,27.4306131 C16.7818374,28.5207608 18.0376382,29.6779944 19.436505,30.1811394 L20.4220701,30.533341 L19.5636746,31.070029 C18.2919776,31.8415181 16.7977335,32.2775772 15.3034895,32.3111202 C14.5881599,32.3278916 14,32.3949776 14,32.4452922 C14,32.6130071 15.939338,33.5522113 17.0679692,33.9211843 C20.4538626,35.0113319 24.4756046,34.5417298 27.4958851,32.6800932 C29.6418739,31.3551445 31.7878628,28.7220188 32.7893242,26.1727505 C33.3297954,24.8142589 33.8702667,22.3320767 33.8702667,21.1413 C33.8702667,20.369811 33.9179553,20.269182 34.8081432,19.3467494 C35.3327183,18.8100613 35.8255009,18.2230588 35.9208782,18.0553437 C36.0798403,17.7366852 36.0639442,17.7366852 35.2532373,18.0218007 C33.9020591,18.5249458 33.7113045,18.4578598 34.3789455,17.7031422 C34.8717281,17.1664541 35.459888,16.1937071 35.459888,15.9085915 C35.459888,15.858277 35.2214448,15.9421346 34.9512092,16.093078 C34.6650773,16.2607931 34.0292288,16.5123656 33.5523424,16.6633091 L32.6939469,16.9484246 L31.9150324,16.394965 C31.4858346,16.093078 30.8817786,15.757648 30.5638543,15.657019 C29.7531474,15.422218 28.5132428,15.455761 27.7820169,15.724105 C25.7949903,16.4788226 24.5391894,18.4243168 24.6822554,20.5542975 C24.6822554,20.5542975 24.5391894,18.4243168 24.6822554,20.5542975 Z M24.6822554,20.5542975"/></g></g></symbol>
+        </svg>
+    </div>
 <script src="js/catalog.js"></script>
 </body>
 </html>

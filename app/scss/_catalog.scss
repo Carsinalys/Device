@@ -98,24 +98,6 @@
 
 //main catalog
 
-.catalog_head {
-  background: linear-gradient(to right, #ebebeb 0%, #dbdbdb 0%, #dbdbdb 25%, #ebebeb 25%, #ebebeb 100%);
-  @include mobile {
-    background: linear-gradient(to right, #ebebeb 0%, #dbdbdb 0%, #dbdbdb 30%, #ebebeb 30%, #ebebeb 100%);
-  }
-}
-
-.catalog_body {
-  background:  linear-gradient(to right, #fff 0%, #f0f0f0 0%, #f0f0f0 25%, #fff 25%, #fff 100%);
-
-  @include mobile {
-    background:  linear-gradient(to right, #fff 0%, #f0f0f0 0%, #f0f0f0 30%, #fff 30%, #fff 100%);
-  }
-
-  @include laptop {
-    background:  linear-gradient(to right, #fff 0%, #f0f0f0 0%, #f0f0f0 29%, #fff 29%, #fff 100%);
-  }
-}
 
 .container_theme {
   display: flex;
@@ -147,6 +129,20 @@
 .form_title {
   padding: 3rem 0;
   background: #dbdbdb;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -999%;
+    background: #dbdbdb;
+    height: 100%;
+    width: 1000%;
+    z-index: -1;
+
+  }
 
   @include littleDesctop {
     padding: 2rem 0;
@@ -168,6 +164,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -999%;
+    background: #ebebeb;
+    height: 100%;
+    width: 1000%;
+    z-index: -1;
+
+  }
+
+
 
   @include littleDesctop {
     padding: 2rem 0 2rem 3rem;
@@ -335,6 +347,20 @@
   padding: 7rem 7rem 0 0;
   background: #f0f0f0;
   min-height: 127.1rem;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -999%;
+    background: #f0f0f0;
+    height: 100%;
+    width: 1000%;
+    z-index: -1;
+
+  }
 
   @include littleDesctop {
     min-height: 107rem;
@@ -346,7 +372,7 @@
   }
   @include mobile {
     padding: 2rem 1rem 0 0;
-    min-height: 130.6rem;
+    min-height: 150.6rem;
   }
 }
 
@@ -434,7 +460,6 @@ input[type=range] {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   -moz-opacity: 0;
-  -khtml-opacity: 0;
   opacity: 0;
   cursor: pointer;
 }
@@ -445,13 +470,16 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 
-input[type=range]::-moz-range-track {
-  -moz-appearance: none;
-  background: transparent;
-  color: transparent;
+input[type=range]::-moz-range-thumb {
+  pointer-events: all;
+  width: 15px;
+  height: 15px;
+  border-radius: 0;
+  border: 0 none;
+  background: red;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {
   background: transparent;
   border: transparent;
 }
@@ -464,28 +492,25 @@ input[type=range]::-ms-thumb {
   pointer-events: all;
   width: 15px;
   height: 15px;
-  border-radius: 0px;
+  border-radius: 0;
   border: 0 none;
   background: red;
 }
 
-input[type=range]::-moz-range-thumb {
-  pointer-events: all;
-  width: 15px;
-  height: 15px;
-  border-radius: 0px;
-  border: 0 none;
-  background: red;
+input[type=range]::-moz-range-track {
+  -moz-appearance: none;
+  background: transparent;
+  color: transparent;
 }
 
 input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   pointer-events: all;
   width: 15px;
   height: 15px;
-  border-radius: 0px;
+  border-radius: 0;
   border: 0 none;
-  background: red;
-  -webkit-appearance: none;
+  background: blue;
 }
 
 input[type=range]::-ms-fill-lower {
@@ -692,9 +717,19 @@ input[type=range]::-ms-tooltip {
   }
 }
 
+@keyframes zoom {
+  from {
+    transform: scale(0) skew(-90deg);
+  }
+  to {
+    transform: scale(1) skew(0);
+  }
+}
+
 .goods_item {
   width: 47.5%;
   margin-bottom: 5rem;
+  animation: zoom 0.5s;
 
   @include mobile {
     width: 100%;

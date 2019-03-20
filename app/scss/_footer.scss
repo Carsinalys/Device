@@ -192,3 +192,112 @@
     background: url("data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAiCAMAAACZf1ICAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAOVBMVEX/xgD/////xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgD/xgAAAAAurDB+AAAAEnRSTlMAAAUTIicwOk1DSCsdChgOPzVZ4XM2AAAAAWJLR0QSe7xsAAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+MCFxEbIROx7UkAAAFPSURBVCjPdZNRgsMgCERVVBA1Mfe/7AIam+1m+WiaPhmBoc45FwBiyoikgZhTBAjee4eF3qOgsycj1tQAHEBLFZHtV2HQ3SP8jA7GnHth3n+xVo5/2KmFYn9hIROlXuUjfLPIkjKTuf1iMEiumrUchfDczOTCp87ElMNkaclJ9NlDz8TR2JZzDvMqUy4xhmE3mIjTamHMPDw3i0gFNK/MPKmkrlSkHAtdcEn+rFPEuRk7pIgk/e86dZA8hRGjOYyP3q9Y9ayeGX8YYZNhxVCn508G0n+NvPfhyXA0rSK9sYPpaoPG2itzYnskF3G6RWvYHoXb9XIUm5LNLBgrbW0L33ISTY45qfAeqAhPOa+rw0k8u+gzUPPPury611cd+hqoMtU2M5Y38jrAvqqry8R1WrbABhrsuczfltv5bPn39j7+CdY6x730T6aCOXyQ/wGRCBE/FaQSLAAAAABJRU5ErkJggg==");
   }
 }
+
+
+//////////////////////////////////////////svg
+
+.social_svg {
+  width: 40px;
+  height: 40px;
+}
+
+ use.logo-2, use.user-2, use.compare-2, use.cart-2{
+  fill: #ffe27f;
+  transition: 0.3s;
+}
+
+ .footer_logo_link {
+   &:hover {
+     use.logo-2 {
+       fill: #ffc700;
+     }
+   }
+   &:active {
+     use.logo-2 {
+       fill: #8d7534;
+     }
+   }
+ }
+
+ .user-2_link {
+   &:hover {
+     use.user-2 {
+       fill: #ffc700;
+     }
+   }
+   &:active {
+     use.user-2 {
+       fill: #8d7534;
+     }
+   }
+ }
+
+ .compare-1_link {
+   &:hover {
+     use.compare-2 {
+       fill: #ffc700;
+     }
+   }
+   &:active {
+     use.compare-2 {
+       fill: #8d7534;
+     }
+   }
+ }
+
+ .cart-2_link {
+   &:hover {
+     use.cart-2 {
+       fill: #ffc700;
+     }
+   }
+   &:active {
+     use.cart-2 {
+       fill: #8d7534;
+     }
+   }
+ }
+
+use.facebook, use.instagram, use.twitter{
+  fill: #7c7c7c;
+  transition: 0.3s;
+}
+
+.facebook_link {
+  &:hover {
+    use.facebook {
+      fill: #b4b4b4;
+    }
+  }
+  &:active {
+    use.facebook {
+      fill: #575757;
+    }
+  }
+}
+
+.instagram_link {
+  &:hover {
+    use.instagram {
+      fill: #b4b4b4;
+    }
+  }
+  &:active {
+    use.instagram {
+      fill: #575757;
+    }
+  }
+}
+
+.twitter_link {
+  &:hover {
+    use.twitter {
+      fill: #b4b4b4;
+    }
+  }
+  &:active {
+    use.twitter {
+      fill: #575757;
+    }
+  }
+}
