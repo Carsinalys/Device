@@ -141,8 +141,9 @@ function getXmlHttp(){
 }
 // sort
 
-var clone = new Object(); // создал глобальый объект в который будет записан нодлист с сервера
-var newObject = new Object(); // объект для сортировок по форме
+let clone = new Object(); // создал глобальый объект в который будет записан нодлист с сервера
+let newObject = new Object(); // объект для сортировок по форме
+
 
 //sort by price
 
@@ -165,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         let nodeGoods = document.createElement('div'),
                             text = '';
                         nodeGoods.setAttribute('class', 'goods_item');
+                        nodeGoods.setAttribute('data-bluetooth', someValue.goods[i].bluetooth);
                         text += '<div><img src="'+someValue.goods[i].src+'" alt=""><div class="hidden"><div class="link_backside_theme"><a href="#">в корзину</a>';
                         text += '</div><a href="#">добавить к сравнению</a></div></div><div><p>'+someValue.goods[i].text+'</p><span>'+someValue.goods[i].cost+'</span></div>';
                         nodeGoods.innerHTML = text;
@@ -190,12 +192,22 @@ document.addEventListener('DOMContentLoaded', function () {
         form.addEventListener('change', function () { // обработчик срабатывает на изменении фрмы
             let minPrice = document.querySelector('.value1').innerHTML,
                 maxPrice = document.querySelector('.value2').innerHTML,
+                bluetoothInputs = document.querySelectorAll('.form_radio')
+                checkedBluetooth = true,
                 arr = [];
+
+                function getChecked (i) {// получение чекнутого инпута
+                    if (bluetoothInputs[0].checked == true) {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
 
             clearObject(newObject);//очищаем буферный объект для запонения отсортированныит свойствами
             let i = 0;
             for (let key in clone) {  // работа с клонированными элементами в объекте clone
-                if (parseFloat(clone[i].children[1].children[1].innerHTML) < maxPrice && parseFloat(clone[i].children[1].children[1].innerHTML) > minPrice) {
+                if (parseFloat(clone[i].children[1].children[1].innerHTML) < maxPrice && parseFloat(clone[i].children[1].children[1].innerHTML) > minPrice && JSON.parse(clone[i].dataset.bluetooth) == getChecked()) {
                             arr.push(i);
                         }
                 i++;

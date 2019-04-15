@@ -3,42 +3,50 @@
     "0": {
       "src": "img/catalog/goods/item-1.jpg",
       "text": "Любительская селфи-палка",
-      "cost": "500 руб."
+      "cost": "500 руб.",
+      "bluetooth": true
     },
     "1": {
       "src": "img/catalog/goods/item-2.jpg",
       "text": "Профессиональная селфи-палка",
-      "cost": "1500 руб."
+      "cost": "1500 руб.",
+      "bluetooth": false
     },
     "2": {
       "src": "img/catalog/goods/item-3.jpg",
       "text": "Непотопляемая селфи-палка",
-      "cost": "2500 руб."
+      "cost": "2500 руб.",
+      "bluetooth": true
     },
     "3": {
       "src": "img/catalog/goods/item-4.jpg",
       "text": "Селфи-палка «Следуй за мной»",
-      "cost": "4900 руб."
+      "cost": "4900 руб.",
+      "bluetooth": false
     },
     "4": {
       "src": "img/catalog/goods/item-5.jpg",
       "text": "Селфи-палка «Следуй за»",
-      "cost": "6500 руб."
+      "cost": "6500 руб.",
+      "bluetooth": true
     },
     "5": {
       "src": "img/catalog/goods/item-6.jpg",
       "text": "Селфи-палка «за мной»",
-      "cost": "3000 руб."
+      "cost": "3000 руб.",
+      "bluetooth": true
     },
     "6": {
       "src": "img/catalog/goods/item-7.jpg",
       "text": "Селфи-палка «Следуй мной»",
-      "cost": "4399 руб."
+      "cost": "4399 руб.",
+      "bluetooth": false
     },
     "7": {
       "src": "img/catalog/goods/item-8.jpg",
       "text": "Селфи-палка big",
-      "cost": "9000 руб."
+      "cost": "9000 руб.",
+      "bluetooth": false
     }
   }
 }
